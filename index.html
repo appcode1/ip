@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index</title>
+	<style>
+	   .d-block {
+	     display: block;
+	   }
+	   .d-none {
+	     display: none;
+	   }
+	   .mx-auto {
+	    margin-left:auto;
+		margin-right:auto;
+	   }
+	   .text-label {
+		padding-top:0.5rem;
+		padding-bottom:0.5rem;
+		padding-right:0.25rem;
+		padding-left:0.25rem;
+	   }
+	   .text-left {
+	     text-align: left;
+	   }
+	   .text-center {
+	     text-align: center;
+		}
+		.text-content {
+		  color: #0d6efd;
+		  padding-left:0.25rem;
+		  padding-right:0.25rem;
+		}
+		.py-2 {
+		  padding-top:1rem;
+		  padding-bottom:1rem;
+		}
+		td {
+		  border: 1px solid #ccd3f1;
+		}
+	</style>
+  </head>
+  <body>
+	<div style="max-width: 22rem;min-width:16rem;margin-left:auto;margin-right:auto;margin-top:3rem;">
+		<h1 class="text-center">Hello World!</h1>
+		<h2 class="text-center" id='divdt'></h2>
+	    <div class="mx-auto" style="margin-top:5rem;font-size:1.5rem;border:2px solid #f50660;border-radius:0.25rem;padding:1rem;width:15rem;">
+		  <span style="margin-right:1rem;">IP:</span>
+		  <span id="ip"></span>
+	    </div>
+		<div style="margin-top:10rem; text-align:center">
+			<a href="./wireguard.html">WireGuard</a>
+		</div>
+	</div>
+  </body>
+<script type="application/javascript">
+  function getIP(json) {
+   document.getElementById('ip').innerText = json.ip;
+  }
+</script>
+<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>  
+<script type="application/javascript">
+    var divdt = document.getElementById('divdt');
+	function startTime() {
+		divdt.innerHTML = (new Date()).toLocaleString();
+		setTimeout(startTime, 1000);
+	}
+	startTime();
+</script>
+</html>
